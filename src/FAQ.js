@@ -1,12 +1,18 @@
 import React from "react";
 
-const Home = () => {
+const FAQ = () => {
   return (
     <div>
-      <h1>Bienvenue sur Poke API</h1>
-      <p>Welcome to the home page!</p>
+      <div class="title">
+        <h1>FAQ</h1>
+      </div>
+      <div class="content">
+        <p>
+          
+        </p>
+      </div>
     </div>
   );
 };
 
-export default Home;
+export default FAQ;

@@ -1,12 +1,18 @@
 import React from "react";
 
-const Home = () => {
+const SitesCompetition = () => {
   return (
     <div>
-      <h1>Bienvenue sur Poke API</h1>
-      <p>Welcome to the home page!</p>
+      <div class="titre">
+        <h1>Sites de compétition</h1>
+      </div>
+      <div class="content">
+        <p>
+          
+        </p>
+      </div>
     </div>
   );
 };
 
-export default Home;
+export default SitesCompetition;

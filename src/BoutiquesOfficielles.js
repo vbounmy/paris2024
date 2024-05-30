@@ -34,28 +34,32 @@ const BoutiquesOfficielles = () => {
 
   return (
     <div>
-      <h1>Boutiques Officielles</h1>
-      <input
-        type="text"
-        value={query}
-        onChange={handleInputChange}
-        placeholder="Entrez une adresse ou un lieu"
-      />
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <ul>
-          {data.length > 0 ? (
-            data.map((item) => (
-              <li key={item.recordid}>
-                {item.fields.nom} - {item.fields.adresse}
-              </li>
-            ))
-          ) : (
-            <li>Aucune donnée trouvée</li>
-          )}
-        </ul>
-      )}
+      <div class="title">
+        <h1>Boutiques Officielles</h1>
+      </div>
+      <div class="content">
+        <input
+          type="text"
+          value={query}
+          onChange={handleInputChange}
+          placeholder="Entrez une adresse ou un lieu"
+        />
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <ul>
+            {data.length > 0 ? (
+              data.map((item) => (
+                <li key={item.recordid}>
+                  {item.fields.nom} - {item.fields.adresse}
+                </li>
+              ))
+            ) : (
+              <li>Aucune donnée trouvée</li>
+            )}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };

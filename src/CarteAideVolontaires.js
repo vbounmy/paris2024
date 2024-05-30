@@ -1,12 +1,18 @@
 import React from "react";
 
-const Home = () => {
+const CarteAideVolontaires = () => {
   return (
     <div>
-      <h1>Bienvenue sur Poke API</h1>
-      <p>Welcome to the home page!</p>
+      <div class="titre">
+        <h1>Carte d'aide <br/> pour les volontaires Paris 2024</h1>
+      </div>
+      <div class="content">
+        <p>
+          
+        </p>
+      </div>
     </div>
   );
 };
 
-export default Home;
+export default CarteAideVolontaires;

@@ -7,7 +7,7 @@ tablet : 768px*/
 }
 
 body {
-  font-family: Inter;
+  font-family: "Paris 2024", sans-serif;
   height: 100%;
   /* background: -webkit-linear-gradient(top, #7dcbf9, #1b3a77); */
   background: -webkit-linear-gradient(bottom, #17B6AF, #003A54);
@@ -17,17 +17,25 @@ body {
 
 header{
   padding: 10px 30px;
-  font-family: "Paris 2024", sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-content: center;
   /* background-color: #102247; */
   background-color: #012333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  height: 110px;
 }
 
 header a{font-size: 20px;
   line-height: 26px;}
+
+header img{
+  height: 90px;
+  width: auto;}
 
 .header-logo{
   display: flex;
@@ -77,9 +85,9 @@ header a{font-size: 20px;
     }
       
 main {
-  background-color: white;
-  padding: 20px 100px;
-  margin: 100px 0px;
+  margin: 110px 0px 90px 0px;
+  height: 55vh;
+  padding-top: 100px;
 }
 
 footer{
@@ -147,7 +155,7 @@ input {
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.4);
   padding: 5px;
-  width: 400px;
+  width: 500px;
 }
 
 a,
@@ -194,4 +202,46 @@ img {
     font-size: 24px;
     line-height: 32px;
   }
+}
+
+
+/* TITLE, SEARCH BAR, CONTENT */
+
+.title{
+  text-align: center;
+  color: white;
+  padding-bottom: 50px;
+}
+
+.title h1{
+  font-size: 52px;
+  line-height: 56px;
+  font-weight: 1000;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.title h3{
+  font-weight: 400;
+}
+
+.search-bar{
+  padding: 0px 100px;
+  text-align: center;
+  align-items: center;
+  height: 28px;
+}
+
+.search-bar input{
+  margin: 0px;
+  background-color: white;
+  border: none;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.2);
+  height: 56px;
+  padding: 20px;
+}
+
+.content{
+  padding: 50px 100px 20px 100px;
+  background-color: white;
 }
