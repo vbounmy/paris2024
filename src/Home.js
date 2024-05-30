@@ -1,28 +1,21 @@
-import React from "react";
+import React, { Component } from "react";
+import SectionRecherche from "./SectionRecherche.js";
 
-const Home = () => {
-  return (
-    <div>
-
-      <div class="title">
-        <h1>Bienvenue</h1>
-        <h3>Entrez un lieu et retrouvez les activités les plus proches.</h3>
-      </div>
-      <div class="search-bar">
-        <input 
-          type="text"
-          placeholder="Entrez une adresse ou un lieu.."
+class Home extends Component {
+  render () {
+    const title = "Bienvenue";
+    const slogan = "Entrez un lieu et retrouvez les activités à proximité.";
+    const content = "Vous trouverez toutes les informations facilitant vos déplacements afin de profiter pleinement des Jeux.";
+    return (
+      <div>
+        <SectionRecherche 
+          title={title}
+          slogan={slogan}
+          content={content}
         />
       </div>
-      <div class="content">
-        <p>
-          Vous trouverez toutes les informations facilitant vos déplacements afin
-          de profiter pleinement des Jeux.
-        </p>
-      </div>
-
-    </div>
-  );
+    );
+  };
 };
 
 export default Home;

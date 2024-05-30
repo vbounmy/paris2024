@@ -1,18 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
+import SectionRecherche from "./SectionRecherche.js";
 
-const OlympiadeCulturelle = () => {
-  return (
-    <div>
-      <div class="titre">
-        <h1>évènements <br/> Olympiade Culturelle</h1>
+class OlympiadeCulturelle extends Component {
+  render () {
+    const title = "évènements Olympiade Culturelle";
+    const slogan = "Entrez un lieu et retrouvez tous les évènements Olympiade Culturelle à proximité.";
+    return (
+      <div>
+        <SectionRecherche 
+          title={title}
+          slogan={slogan}
+        />
       </div>
-      <div class="content">
-        <p>
-          
-        </p>
-      </div>
-    </div>
-  );
+    );
+  };
 };
 
 export default OlympiadeCulturelle;

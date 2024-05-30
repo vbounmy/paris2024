@@ -1,18 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
+import SectionRecherche from "./SectionRecherche.js";
 
-const CentresPreparation = () => {
-  return (
-    <div>
-      <div class="titre">
-        <h1>Centres de préparation</h1>
+class CentresPreparation extends Component {
+  render () {
+    const title = "Centres de préparation";
+    const slogan = "Entrez un lieu et retrouvez tous les centres de préparation à proximité.";
+    return (
+      <div>
+        <SectionRecherche 
+          title={title}
+          slogan={slogan}
+        />
       </div>
-      <div class="content">
-        <p>
-          
-        </p>
-      </div>
-    </div>
-  );
+    );
+  };
 };
 
 export default CentresPreparation;

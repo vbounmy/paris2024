@@ -1,18 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
+import SectionRecherche from "./SectionRecherche.js";
 
-const SitesCompetition = () => {
-  return (
-    <div>
-      <div class="titre">
-        <h1>Sites de compétition</h1>
+class SitesCompetition extends Component {
+  render () {
+    const title = "Sites de compétition";
+    const slogan = "Entrez un lieu et retrouvez tous les sites de compétition à proximité.";
+    return (
+      <div>
+        <SectionRecherche 
+          title={title}
+          slogan={slogan}
+        />
       </div>
-      <div class="content">
-        <p>
-          
-        </p>
-      </div>
-    </div>
-  );
+    );
+  };
 };
 
 export default SitesCompetition;

@@ -1,18 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
+import SectionRecherche from "./SectionRecherche.js";
 
-const CarteAideVolontaires = () => {
-  return (
-    <div>
-      <div class="titre">
-        <h1>Carte d'aide <br/> pour les volontaires Paris 2024</h1>
+class CarteAideVolontaires extends Component {
+  render () {
+    const title = "Carte d'aide pour les volontaires Paris 2024";
+    const slogan = "Trouvez toutes les informations concernant les cartes d'aide pour les volontaires Paris 2024.";
+    return (
+      <div>
+        <SectionRecherche 
+          title={title}
+          slogan={slogan}
+        />
       </div>
-      <div class="content">
-        <p>
-          
-        </p>
-      </div>
-    </div>
-  );
+    );
+  };
 };
 
 export default CarteAideVolontaires;

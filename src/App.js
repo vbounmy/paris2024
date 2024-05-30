@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./Home.js";
-import logoGif from "./emblem-white.svg";
-import logo2 from "./Emblme Paris 2024.png";
+import logoGif from "./images/emblem-white.svg";
+import logo2 from "./images/Emblme Paris 2024.png";
 import BoutiquesOfficielles from "./BoutiquesOfficielles.js";
 import CentresPreparation from "./CentresPreparation.js";
 import SitesCompetition from "./SitesCompetition.js";
