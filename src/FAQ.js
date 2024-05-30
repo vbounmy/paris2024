@@ -1,18 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
+import SectionRecherche from "./SectionRecherche.js";
 
-const FAQ = () => {
-  return (
-    <div>
-      <div class="title">
-        <h1>FAQ</h1>
+class FAQ extends Component {
+  render () {
+    const title = "FAQ";
+    const slogan = "Recherchez, posez ou répondez à des questions.";
+    return (
+      <div>
+        <SectionRecherche 
+          title={title}
+          slogan={slogan}
+        />
       </div>
-      <div class="content">
-        <p>
-          
-        </p>
-      </div>
-    </div>
-  );
+    );
+  };
 };
 
 export default FAQ;

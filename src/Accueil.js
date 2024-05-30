@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SectionRecherche from "./SectionRecherche.js";
 
-class Home extends Component {
+class Accueil extends Component {
   render () {
     const title = "Bienvenue";
     const slogan = "Entrez un lieu et retrouvez les activités à proximité.";
@@ -18,4 +18,4 @@ class Home extends Component {
   };
 };
 
-export default Home;
+export default Accueil;

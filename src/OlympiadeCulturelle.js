@@ -3,7 +3,13 @@ import SectionRecherche from "./SectionRecherche.js";
 
 class OlympiadeCulturelle extends Component {
   render () {
-    const title = "évènements Olympiade Culturelle";
+    const title = (
+      <>
+      évènements
+      <br/>
+      Olympiade Culturelle
+      </>
+    );
     const slogan = "Entrez un lieu et retrouvez tous les évènements Olympiade Culturelle à proximité.";
     return (
       <div>

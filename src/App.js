@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Home from "./Home.js";
+import Accueil from "./Accueil.js";
 import logoGif from "./images/emblem-white.svg";
 import logo2 from "./images/Emblme Paris 2024.png";
 import BoutiquesOfficielles from "./BoutiquesOfficielles.js";
@@ -33,13 +33,15 @@ const App = () => {
 
         <header class="header">
           <div class="header-logo">
-            <h1>PARIS 2024</h1>
-            <img src={logoGif} />
+            <h1 class="header-h1"><Link to="/">PARIS 2024</Link></h1>
+            <Link to="/">
+              <img src={logoGif}/>
+            </Link>
           </div>
           <nav>
             <ul>
               <li>
-                <Link to="/">HOME</Link>
+                <Link to="/">ACCUEIL</Link>
               </li>
               <li>
                 <Link to="/FAQ">FAQ</Link>
@@ -80,7 +82,7 @@ const App = () => {
 
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Accueil />} />
             <Route
               path="/boutiques-officielles"
               element={<BoutiquesOfficielles />}
