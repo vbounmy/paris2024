@@ -77,11 +77,12 @@ header img{
   padding: 10px;
   border-radius: 50%;
   background-color: white;
+  transition: 0.2s;
   }
 
   .menu-icon-container:hover svg{
     fill: white;
-    transition: 0.4s;
+    transition: 0.2s;
     }
   
 .sidebar{position: fixed;
@@ -113,7 +114,7 @@ header img{
       
 main {
   margin: 110px 0px 90px 0px;
-  height: 55vh;
+  /* height: 55vh; */
   padding-top: 100px;
 }
 
@@ -182,7 +183,7 @@ input {
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.4);
   padding: 5px;
-  width: 500px;
+  width: 480px;
 }
 
 a,
@@ -213,6 +214,32 @@ li {
 img {
   width: 80px;
 }
+
+table {
+  border-spacing: 60px 5px;
+}
+
+thead {
+  font-weight: bold;
+  position: sticky;
+}
+
+th{
+  padding: 0px 10px;
+  text-align: center;
+  width: auto;
+}
+
+td {
+  font-weight: 400;
+}
+
+th, td{
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 24px;
+}
+
 
 @media (max-width: 480px) {
   h1 {
@@ -254,9 +281,11 @@ img {
 
 .search-bar{
   padding: 0px 100px;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  height: 28px;
+  height: 10px;
 }
 
 .search-bar input{
@@ -266,6 +295,34 @@ img {
   box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.4);
   height: 56px;
   padding: 20px;
+  border-radius: 5px 0 0 5px;
+}
+
+.button-arrow{
+  background-color: white;
+  height: 56px;
+  border-radius: 0 5px 5px 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+.button-arrow button{
+  margin-right: 15px;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.button-arrow button:hover{
+  background-color: #454545;
+  cursor: pointer;
+}
+
+.button-arrow svg{
+  stroke: white;
+  stroke-width: 4px;
 }
 
 

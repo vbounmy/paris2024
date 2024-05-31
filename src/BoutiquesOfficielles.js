@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import SectionRecherche from "./SectionRecherche.js";
 
@@ -6,11 +5,13 @@ class BoutiquesOfficielles extends Component {
   render () {
     const title = "Boutiques Officielles";
     const slogan = "Entrez un lieu et retrouvez toutes les boutiques officielles à proximité.";
+    const dataId = "boutiques-officielles"
     return (
       <div>
         <SectionRecherche 
           title={title}
           slogan={slogan}
+          dataId={dataId}
         />
       </div>
     );
