@@ -3,7 +3,7 @@ import SectionRecherche from "./SectionRecherche.js";
 
 class ParkingsVelo extends Component {
   render () {
-    const title = (
+    const pageTitle = (
       <>
       Parkings vélo
       <br/>
@@ -14,7 +14,7 @@ class ParkingsVelo extends Component {
     return (
       <div>
         <SectionRecherche 
-          title={title}
+          pageTitle={pageTitle}
           slogan={slogan}
         />
       </div>

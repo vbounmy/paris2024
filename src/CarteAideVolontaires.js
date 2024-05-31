@@ -3,7 +3,7 @@ import SectionRecherche from "./SectionRecherche.js";
 
 class CarteAideVolontaires extends Component {
   render () {
-    const title = (
+    const pageTitle = (
       <>
       Carte d'aide
       <br/>
@@ -14,7 +14,7 @@ class CarteAideVolontaires extends Component {
     return (
       <div>
         <SectionRecherche 
-          title={title}
+          pageTitle={pageTitle}
           slogan={slogan}
         />
       </div>

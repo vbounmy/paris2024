@@ -3,7 +3,7 @@ import SectionRecherche from "./SectionRecherche.js";
 
 class OlympiadeCulturelle extends Component {
   render () {
-    const title = (
+    const pageTitle = (
       <>
       évènements
       <br/>
@@ -14,7 +14,7 @@ class OlympiadeCulturelle extends Component {
     return (
       <div>
         <SectionRecherche 
-          title={title}
+          pageTitle={pageTitle}
           slogan={slogan}
         />
       </div>

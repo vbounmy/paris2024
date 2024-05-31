@@ -3,12 +3,12 @@ import SectionRecherche from "./SectionRecherche.js";
 
 class FAQ extends Component {
   render () {
-    const title = "FAQ";
+    const pageTitle = "FAQ";
     const slogan = "Recherchez, posez ou répondez à des questions.";
     return (
       <div>
         <SectionRecherche 
-          title={title}
+          pageTitle={pageTitle}
           slogan={slogan}
         />
       </div>

@@ -3,8 +3,8 @@ import React, { Component } from "react";
 const TitleSearchSection = (props) => {
     return (
         <div>
-            <div class="title">
-                <h1>{props.title}</h1>
+            <div class="page-title">
+                <h1>{props.pageTitle}</h1>
                 <h3>{props.slogan}</h3>
             </div>
             <div class="search-bar">
@@ -20,9 +20,9 @@ const TitleSearchSection = (props) => {
                     </button>
                 </div>
             </div>
-            <div class="content">
+            {/* <div class="content">
                 <p>{props.content}</p>
-            </div>
+            </div> */}
         </div>
     )
 }
@@ -34,10 +34,10 @@ class SectionRecherche extends Component {
     };
 
     fetchData = (query = '') => {
-        const { dataId } = this.props;
+        const { dataId, dataType1, dataType2 } = this.props;
         let url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/paris-2024-${dataId}/records?limit=100`;
         if (query) {
-            url += `&q=${query}`;
+            url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/paris-2024-${dataId}/records?select=${dataType1}%2C${dataType2}&where=%22${query}%22&limit=100`;
         }
         console.log('Fetching data from:', url);
         fetch(url)
@@ -46,8 +46,8 @@ class SectionRecherche extends Component {
                 console.log('API response:', result);
                 if (result.results && Array.isArray(result.results)) {
                     const data = result.results.map(record => ({ 
-                        title: record.title,
-                        address: record.address,
+                        [dataType1]: record[dataType1],
+                        [dataType2]: record[dataType2],
                     }));
                     this.setState({
                         data: data,
@@ -78,15 +78,17 @@ class SectionRecherche extends Component {
     }
 
     render() {
-        const { title, slogan, content, dataId } = this.props;
+        const { pageTitle, slogan, content, dataId, dataType1, dataType2, tableData1, tableData2 } = this.props;
         const { data, searchQuery } = this.state;
         return (
             <div>
                 <TitleSearchSection 
-                title={title} 
+                pageTitle={pageTitle} 
                 slogan={slogan} 
                 content={content}
                 dataId = {dataId}
+                dataType1 = {dataType1}
+                dataType2 = {dataType2}
                 searchQuery={searchQuery}
                 onSearchChange={this.handleSearchChange}
                 onSearchSubmit={this.handleSearchSubmit}
@@ -96,16 +98,16 @@ class SectionRecherche extends Component {
                     <table>
                         <thead>
                             <tr>
-                                <th>Nom</th>
-                                <th>Adresse</th>
+                                <th>{tableData1}</th>
+                                <th>{tableData2}</th>
                             </tr>
                         </thead>
                         <tbody>
                             {data.length > 0 ? (
                                 data.map((item, index) => (
                                     <tr key={index}>
-                                        <td>{item.title}</td>
-                                        <td>{item.address}</td>
+                                        <td>{item[this.props.dataType1]}</td>
+                                        <td>{item[this.props.dataType2]}</td>
                                     </tr>
                                 ))
                             ) : (

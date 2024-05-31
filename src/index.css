@@ -224,17 +224,14 @@ thead {
   position: sticky;
 }
 
-th{
-  padding: 0px 10px;
-  text-align: center;
-  width: auto;
-}
-
 td {
   font-weight: 400;
 }
 
 th, td{
+  padding: 0px 10px;
+  text-align: left;
+  width: auto;
   font-size: 20px;
   line-height: 26px;
   margin-bottom: 24px;
@@ -259,15 +256,15 @@ th, td{
 }
 
 
-/* TITLE, SEARCH BAR, CONTENT */
+/* PAGE TITLE, SEARCH BAR, CONTENT */
 
-.title{
+.page-title{
   text-align: center;
   color: white;
   padding : 0px 50px 50px 50px
 }
 
-.title h1{
+.page-title h1{
   font-size: 52px;
   line-height: 56px;
   font-weight: 1000;
@@ -275,7 +272,7 @@ th, td{
   text-transform: uppercase;
 }
 
-.title h3{
+.page-title h3{
   font-weight: 400;
 }
 

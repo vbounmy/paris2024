@@ -3,12 +3,12 @@ import SectionRecherche from "./SectionRecherche.js";
 
 class CentresPreparation extends Component {
   render () {
-    const title = "Centres de préparation";
+    const pageTitle = "Centres de préparation";
     const slogan = "Entrez un lieu et retrouvez tous les centres de préparation à proximité.";
     return (
       <div>
         <SectionRecherche 
-          title={title}
+          pageTitle={pageTitle}
           slogan={slogan}
         />
       </div>
