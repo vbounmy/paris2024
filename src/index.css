@@ -172,7 +172,7 @@ h3 {
 h4 {
   font-size: 20px;
   line-height: 26px;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   font-weight: bold;
   font-family: "Paris 2024", sans-serif;
 }
@@ -257,7 +257,7 @@ th, td{
 }
 
 tbody tr:hover{
-  background-color: #17B6AF;
+  background-color: #17b6af;
   color: white;
 }
 
@@ -368,6 +368,63 @@ tbody tr:hover{
     padding: 50px 10px 20px 10px;
   }
 }
+
+/* ACCUEIL */
+
+.cards-section{
+  margin: 20px 50px 0 50px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.card-container{
+  /* border: 1px solid #ddd; */
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: left;
+  border-radius: 5px;
+  border: #ddd
+}
+
+.card-container:hover{
+  transform: scale(1.05);
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.card-container:hover h4{
+  text-decoration: underline;
+}
+
+.card-container img{
+  object-fit: cover;
+  width: 360px;
+  height: 360px;
+  border-radius: 5px;
+}
+
+.card-container a, .card-container a:visited{
+  color: black;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.card-container h4{
+  margin-bottom: 0px;
+}
+
 
 /* FAQ */
 

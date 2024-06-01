@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SectionRecherche from "./SectionRecherche.js";
+import SectionAccueil from "./SectionAccueil.js";
 
 class Accueil extends Component {
   render () {
@@ -8,7 +8,7 @@ class Accueil extends Component {
     const content = "Vous trouverez toutes les informations facilitant vos déplacements afin de profiter pleinement des Jeux.";
     return (
       <div>
-        <SectionRecherche 
+        <SectionAccueil 
           pageTitle={pageTitle}
           slogan={slogan}
           content={content}
