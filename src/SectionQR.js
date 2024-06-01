@@ -28,7 +28,7 @@ const TitleSearchSection = (props) => {
     )
 }
 
-class SectionRecherche extends Component {
+class SectionQR extends Component {
     state = {
         data: [],
         searchQuery: '',
@@ -101,34 +101,22 @@ class SectionRecherche extends Component {
                 />
 
                 <div class="content">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>{tableData1}</th>
-                                <th>{tableData2}</th>
-                                <th>{tableData3}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {data.length > 0 ? (
-                                data.map((item, index) => (
-                                    <tr key={index}>
-                                        <td>{item[this.props.dataType1]}</td>
-                                        <td>{item[this.props.dataType2]}</td>
-                                        <td>{item[this.props.dataType3]}</td>
-                                    </tr>
-                                ))
-                            ) : (
-                                <tr>
-                                    <td colSpan="2">Aucune donnée trouvée.</td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
+                    {data.length > 0 ? (
+                        data.map((item, index) => (
+                            <div class="faq-question" key={index}>
+                                <h3>{item[this.props.dataType1]}</h3>
+                                <p>{item[this.props.dataType2]}</p>
+                                <h4>Pour plus d'informations :</h4>
+                                <p>{item[this.props.dataType3]}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>Aucune donnée trouvée.</p>
+                    )}
                 </div>
             </div>
         );
     }
 }
 
-export default SectionRecherche;
+export default SectionQR;

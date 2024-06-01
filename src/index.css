@@ -13,6 +13,7 @@ body {
   background: -webkit-linear-gradient(bottom, #17B6AF, #003A54);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow-wrap: break-word;
 }
 
 header{
@@ -163,6 +164,14 @@ h2 {
 h3 {
   font-size: 28px;
   line-height: 36px;
+  margin-bottom: 24px;
+  font-weight: bold;
+  font-family: "Paris 2024", sans-serif;
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 26px;
   margin-bottom: 24px;
   font-weight: bold;
   font-family: "Paris 2024", sans-serif;
@@ -358,4 +367,17 @@ tbody tr:hover{
   .content{
     padding: 50px 10px 20px 10px;
   }
+}
+
+/* FAQ */
+
+.faq-question{
+  margin: 20px;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.faq-question h3{
+  color: #17B6AF;
 }

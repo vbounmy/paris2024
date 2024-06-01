@@ -5,7 +5,7 @@ class BoutiquesOfficielles extends Component {
   render () {
     const pageTitle = "Boutiques Officielles";
     const slogan = "Entrez un lieu et retrouvez toutes les boutiques officielles à proximité.";
-    const dataId = "boutiques-officielles";
+    const dataId = "paris-2024-boutiques-officielles";
     const dataType1 = "title";
     const dataType2 = "address";
     const tableData1 = "Nom";

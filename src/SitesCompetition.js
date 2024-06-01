@@ -5,7 +5,7 @@ class SitesCompetition extends Component {
   render () {
     const pageTitle = "Sites de compétition";
     const slogan = "Entrez un lieu ou un sport et retrouvez vos sites de compétition préférés.";
-    const dataId = "sites-de-competition";
+    const dataId = "paris-2024-sites-de-competition";
     const dataType1 = "code_site";
     const dataType2 = "nom_site";
     const dataType3 = "sports";
