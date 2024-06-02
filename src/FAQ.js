@@ -11,7 +11,7 @@ class FAQ extends Component {
     const dataType3 = "url";
     const tableData1 = "Question";
     const tableData2 = "Réponse";
-    const tableData3 = "URL (pour plus d'informations)";
+    const tableData3 = "Pour plus d'informations :";
     return (
       <div>
         <SectionQR 

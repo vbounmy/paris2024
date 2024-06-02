@@ -426,15 +426,28 @@ tbody tr:hover{
 }
 
 
-/* FAQ */
+/* SECTION FAQ OLYMPIADE */
 
-.faq-question{
+.content-faq-olymp{
   margin: 20px;
   padding: 25px;
   border: 1px solid #ddd;
   border-radius: 10px;
 }
 
-.faq-question h3{
+.content-faq-olymp h2{
+  text-transform: uppercase;
+}
+
+.content-faq-olymp h3{
   color: #17B6AF;
+}
+
+.content-faq-olymp h4{
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+
+.content-faq-olymp p{
+  margin-bottom: 5px;
 }

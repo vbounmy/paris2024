@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { format } from 'date-fns';
 
 const TitleSearchSection = (props) => {
     return (
@@ -28,7 +29,7 @@ const TitleSearchSection = (props) => {
     )
 }
 
-class SectionQR extends Component {
+class SectionQROlymp extends Component {
     state = {
         data: [],
         searchQuery: '',
@@ -64,8 +65,8 @@ class SectionQR extends Component {
                         [dataType2]: record[dataType2],
                         [dataType3]: record[dataType3],
                         [dataType4]: record[dataType4],
-                        [dataType5]: record[dataType5],
-                        [dataType6]: record[dataType6],
+                        [dataType5]: format(new Date(record[dataType5]), 'dd/MM/yyyy - HH:mm'),
+                        [dataType6]: format(new Date(record[dataType6]), 'dd/MM/yyyy - HH:mm'),
                         [dataType7]: record[dataType7],
                         [dataType8]: record[dataType8],
                         [dataType9]: record[dataType9],
@@ -130,11 +131,19 @@ class SectionQR extends Component {
                     {data.length > 0 ? (
                         data.map((item, index) => (
                             <div class="content-faq-olymp" key={index}>
+                                <h2>{item[this.props.dataType9]}</h2>
                                 <h3>{item[this.props.dataType1]}</h3>
                                 <p>{item[this.props.dataType2]}</p>
                                 <h4>{tableData3}</h4>
                                 <p>{item[this.props.dataType3]}</p>
                                 <p>{item[this.props.dataType4]}</p>
+                                <h4>{tableData5}</h4>
+                                <p>{item[this.props.dataType5]}</p>
+                                <h4>{tableData6}</h4>
+                                <p>{item[this.props.dataType6]}</p>
+                                <h4>{tableData7}</h4>
+                                <p>{item[this.props.dataType7]}</p>
+                                <p>{item[this.props.dataType8]}</p>
                             </div>
                         ))
                     ) : (
@@ -146,4 +155,4 @@ class SectionQR extends Component {
     }
 }
 
-export default SectionQR;
+export default SectionQROlymp;
