@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import imgSitesCompetition from "./images/sites-de-competition.jpg";
 import imgOlympiade from "./images/olympiade-culturelle.jpg";
@@ -44,166 +44,114 @@ const TitleSearchSection = (props) => {
 };
 
 const ResearchAll = (props) => {
-  const dataSets = [
-    {
-      id: props.idSitesCompetition,
-      name: props.dataNameSitesCompetition,
-      address: props.dataAddressSitesCompetition,
-    },
-    {
-      id: props.idOlympiade,
-      name: props.dataNameOlympiade,
-      address: props.dataAddressOlympiade,
-    },
-    {
-      id: props.idBoutiques,
-      name: props.dataNameBoutiques,
-      address: props.dataAddressBoutiques,
-    },
-    {
-      id: props.idCentresPreparation,
-      name: props.dataNameCentresPreparation,
-      address: props.dataAddressCentresPreparation,
-    },
-    {
-      id: props.idVolontaires,
-      name: props.dataNameVolontaires,
-      address: props.dataAddressVolontaires,
-    },
-    {
-      id: props.idParkings,
-      name: props.dataNameParkings,
-      address: props.dataAddressParkings,
-    },
-  ];
-  return;
-  <div></div>;
+  const { dataCat, dataId, dataName, dataAddress, tableData1, tableData2, query } = props;
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const fetchData = (query = '') => {
+      let url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?limit=100`;
+      if (query) {
+          url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?select=${dataName}%2C${dataAddress}&where=%22${query}%22&limit=100`;
+      }
+      console.log('Fetching data from:', url);
+      fetch(url)
+          .then((result) => result.json())
+          .then((result) => {
+              console.log('API response:', result);
+              if (result.results && Array.isArray(result.results)) {
+                  const data = result.results.map(record => ({ 
+                      [dataName]: record[dataName],
+                      [dataAddress]: record[dataAddress],
+                  }));
+                  setData(data);
+                  setLoading(false);
+              } else {
+                  console.error("Les données de l'API ne sont pas au format attendu:", result);
+                  setError("Les données de l'API ne sont pas au format attendu");
+                  setData([]);
+                  setLoading(false);
+              }
+          })
+          .catch(error => {
+              console.error("Erreur lors de la récupération des données de l'API:", error);
+              setError("Erreur lors de la récupération des données de l'API");
+              setData([]);
+              setLoading(false);
+          });
+  }
+
+  useEffect(() => {
+      fetchData(query);
+  }, [query]);
+
+  if (loading) {
+      return <p>Chargement des données...</p>;
+  }
+
+  if (error) {
+      return <p>{error}</p>;
+  }
+
+  return (
+      <div class="content">
+          <h3>{dataCat}</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>{tableData1}</th>
+                <th>{tableData2}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.length > 0 ? (
+                data.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item[dataName]}</td>
+                    <td>{item[dataAddress]}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="2">Aucune donnée trouvée.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+      </div>
+  );
 };
+
 
 class SectionAccueil extends Component {
   state = {
-    data: [],
     searchQuery: "",
   };
-
-  fetchData = (query = "") => {
-    const {
-      idSitesCompetition,
-      dataNameSitesCompetition,
-      dataAddressSitesCompetition,
-
-      idOlympiade,
-      dataNameOlympiade,
-      dataAddressOlympiade,
-
-      idBoutiques,
-      dataNameBoutiques,
-      dataAddressBoutiques,
-
-      idCentresPreparation,
-      dataNameCentresPreparation,
-      dataAddressCentresPreparation,
-
-      idVolontaires,
-      dataNameVolontaires,
-      dataAddressVolontaires,
-
-      idParkings,
-      dataNameParkings,
-      dataAddressParkings,
-    } = this.props;
-
-    const dataSets = [
-      {
-        id: idSitesCompetition,
-        name: dataNameSitesCompetition,
-        address: dataAddressSitesCompetition,
-      },
-      {
-        id: idOlympiade,
-        name: dataNameOlympiade,
-        address: dataAddressOlympiade,
-      },
-      {
-        id: idBoutiques,
-        name: dataNameBoutiques,
-        address: dataAddressBoutiques,
-      },
-      {
-        id: idCentresPreparation,
-        name: dataNameCentresPreparation,
-        address: dataAddressCentresPreparation,
-      },
-      {
-        id: idVolontaires,
-        name: dataNameVolontaires,
-        address: dataAddressVolontaires,
-      },
-      { id: idParkings, name: dataNameParkings, address: dataAddressParkings },
-    ];
-
-    const promises = dataSets.map((dataSet) => {
-      let url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataSet.id}/records?limit=100`;
-
-      if (dataSet.name && dataSet.address) {
-        const selectParams = `${dataSet.name}%2C${dataSet.address}`;
-        if (query) {
-          url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataSet.id}/records?select=${selectParams}&where=%22${query}%22&limit=100`;
-        } else {
-          url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataSet.id}/records?select=${selectParams}&limit=100`;
-        }
-      }
-
-      console.log("Fetching data from:", url);
-
-      return fetch(url)
-        .then((result) => result.json())
-        .then((result) => {
-          if (result.results && Array.isArray(result.results)) {
-            return result.results.map((record) => ({
-              name: record[dataSet.name],
-              address: record[dataSet.address],
-              type: dataSet.id,
-            }));
-          } else {
-            console.error(
-              "Les données de l'API ne sont pas au format attendu:",
-              result
-            );
-            return [];
-          }
-        })
-        .catch((error) => {
-          console.error(
-            "Erreur lors de la récupération des données de l'API:",
-            error
-          );
-          return [];
-        });
-    });
-
-    Promise.all(promises).then((results) => {
-      const combinedData = results.flat();
-      this.setState({ data: combinedData }, () => {
-        console.log("Updated state with data:", this.state.data);
-      });
-    });
-  };
-
-  componentDidMount() {
-    this.fetchData();
-  }
 
   handleSearchChange = (event) => {
     this.setState({ searchQuery: event.target.value });
   };
 
   handleSearchSubmit = () => {
-    this.fetchData(this.state.searchQuery);
+    // this.fetchData(this.state.searchQuery);
+    this.setState((prevState) => ({ searchQuery: prevState.searchQuery }));
   };
 
   render() {
-    const { pageTitle, slogan, content, tableData1, tableData2 } = this.props;
+    const {
+      pageTitle,
+      slogan,
+      content,
+
+      tableData1,
+      tableData2, 
+
+      dataCatSitesCompetition,
+      idSitesCompetition,
+      dataNameSitesCompetition,
+      dataAddressSitesCompetition,
+      
+    } = this.props;
     const { data, searchQuery } = this.state;
     return (
       <div>
@@ -216,30 +164,14 @@ class SectionAccueil extends Component {
           onSearchSubmit={this.handleSearchSubmit}
         />
 
-        <div class="content">
-          <table>
-            <thead>
-              <tr>
-                <th>{tableData1}</th>
-                <th>{tableData2}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.length > 0 ? (
-                data.map((item, index) => (
-                  <tr key={index}>
-                    <td>{item[this.props.dataSet.name]}</td>
-                    <td>{item[this.props.dataSet.address]}</td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan="2">Aucune donnée trouvée.</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+        <ResearchAll 
+          dataCat={dataCatSitesCompetition} 
+          dataId={idSitesCompetition} 
+          dataName={dataNameSitesCompetition}
+          dataAddress={dataAddressSitesCompetition}
+          tableData1={tableData1}
+          tableData2={tableData2}
+        />
 
         <div class="content">
           <div class="cards-section">
