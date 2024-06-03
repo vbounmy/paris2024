@@ -50,9 +50,9 @@ const ResearchAll = (props) => {
   const [error, setError] = useState(null);
 
   const fetchData = (query = '') => {
-      let url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?limit=100`;
+      let url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?limit=30`;
       if (query) {
-          url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?select=${dataName}%2C${dataAddress}&where=%22${query}%22&limit=100`;
+          url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?select=${dataName}%2C${dataAddress}&where=%22${query}%22&limit=30`;
       }
       console.log('Fetching data from:', url);
       fetch(url)
@@ -150,6 +150,31 @@ class SectionAccueil extends Component {
       idSitesCompetition,
       dataNameSitesCompetition,
       dataAddressSitesCompetition,
+
+      dataCatOlympiade,
+      idOlympiade,
+      dataNameOlympiade,
+      dataAddressOlympiade,
+
+      dataCatBoutiques,
+      idBoutiques,
+      dataNameBoutiques,
+      dataAddressBoutiques,
+
+      dataCatCentresPreparation,
+      idCentresPreparation,
+      dataNameCentresPreparation,
+      dataAddressCentresPreparation,
+
+      dataCatVolontaires,
+      idVolontaires,
+      dataNameVolontaires,
+      dataAddressVolontaires,
+
+      dataCatParkings,
+      idParkings,
+      dataNameParkings,
+      dataAddressParkings,
       
     } = this.props;
     const { data, searchQuery } = this.state;
@@ -171,6 +196,57 @@ class SectionAccueil extends Component {
           dataAddress={dataAddressSitesCompetition}
           tableData1={tableData1}
           tableData2={tableData2}
+          query={searchQuery}
+        />
+
+        <ResearchAll 
+          dataCat={dataCatOlympiade} 
+          dataId={idOlympiade} 
+          dataName={dataNameOlympiade}
+          dataAddress={dataAddressOlympiade}
+          tableData1={tableData1}
+          tableData2={tableData2}
+          query={searchQuery}
+        />
+
+        <ResearchAll 
+          dataCat={dataCatBoutiques} 
+          dataId={idBoutiques} 
+          dataName={dataNameBoutiques}
+          dataAddress={dataAddressBoutiques}
+          tableData1={tableData1}
+          tableData2={tableData2}
+          query={searchQuery}
+        />
+
+        <ResearchAll 
+          dataCat={dataCatCentresPreparation} 
+          dataId={idCentresPreparation} 
+          dataName={dataNameCentresPreparation}
+          dataAddress={dataAddressCentresPreparation}
+          tableData1={tableData1}
+          tableData2={tableData2}
+          query={searchQuery}
+        />
+
+        <ResearchAll 
+          dataCat={dataCatVolontaires} 
+          dataId={idVolontaires} 
+          dataName={dataNameVolontaires}
+          dataAddress={dataAddressVolontaires}
+          tableData1={tableData1}
+          tableData2={tableData2}
+          query={searchQuery}
+        />
+
+        <ResearchAll 
+          dataCat={dataCatParkings} 
+          dataId={idParkings} 
+          dataName={dataNameParkings}
+          dataAddress={dataAddressParkings}
+          tableData1={tableData1}
+          tableData2={tableData2}
+          query={searchQuery}
         />
 
         <div class="content">
