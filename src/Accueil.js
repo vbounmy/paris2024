@@ -11,7 +11,7 @@ class Accueil extends Component {
     const tableData1 = "Nom";
     const tableData2 = "Adresse";
 
-    const dataCatSitesCompetition = "Sites de compétition";
+    const dataCatSitesCompetition = "Sites de compétitions";
     const idSitesCompetition = "paris-2024-sites-de-competition";
     const dataNameSitesCompetition = "sports";
     const dataAddressSitesCompetition = "nom_site";
@@ -36,7 +36,7 @@ class Accueil extends Component {
     const dataNameVolontaires = "type_de_point";
     const dataAddressVolontaires = "commune";
 
-    const dataCatParkings = "Parkings vélo";
+    const dataCatParkings = "Parkings vélo en IDF";
     const idParkings = "paris-2024-parkings-velo-spectateurs-en-idf";
     const dataNameParkings = "nom_site";
     const dataAddressParkings = "adresse_du_parking_velo";

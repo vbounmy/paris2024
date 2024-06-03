@@ -50,7 +50,7 @@ const ResearchAll = (props) => {
   const [error, setError] = useState(null);
 
   const fetchData = (query = '') => {
-      let url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?limit=30`;
+      let url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?limit=0`;
       if (query) {
           url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?select=${dataName}%2C${dataAddress}&where=%22${query}%22&limit=30`;
       }
@@ -94,8 +94,9 @@ const ResearchAll = (props) => {
   }
 
   return (
-      <div class="content">
-          <h3>{dataCat}</h3>
+    <div class="content-home">
+      <h3>{dataCat}</h3>
+        <div class="content-home-table">
           <table>
             <thead>
               <tr>
@@ -118,6 +119,7 @@ const ResearchAll = (props) => {
               )}
             </tbody>
           </table>
+        </div>
       </div>
   );
 };
@@ -133,7 +135,6 @@ class SectionAccueil extends Component {
   };
 
   handleSearchSubmit = () => {
-    // this.fetchData(this.state.searchQuery);
     this.setState((prevState) => ({ searchQuery: prevState.searchQuery }));
   };
 
@@ -249,13 +250,17 @@ class SectionAccueil extends Component {
           query={searchQuery}
         />
 
+        <div class="page-title-2">
+          <h1>Trouvez vos lieux par catégories :</h1>
+        </div>
+
         <div class="content">
           <div class="cards-section">
             <div class="card-container">
               <Link to="/sites-de-competition">
                 <img src={imgSitesCompetition} />
-                <h4>Sites de compétition</h4>
-                <p>Description</p>
+                <h4>Sites de compétitions</h4>
+                <p>Découvrez la liste complète de tous les sites de compétitions Olympiques et Paralympiques.</p>
               </Link>
             </div>
 
@@ -263,7 +268,7 @@ class SectionAccueil extends Component {
               <Link to="/olympiade-culturelle">
                 <img src={imgOlympiade} />
                 <h4>Olympiade Culturelle</h4>
-                <p>Description</p>
+                <p>Découvrez la liste complète de tous les évènements Olympiade Culturelle.</p>
               </Link>
             </div>
 
@@ -271,7 +276,7 @@ class SectionAccueil extends Component {
               <Link to="/boutiques-officielles">
                 <img src={imgBoutiques} />
                 <h4>Boutiques Officielles</h4>
-                <p>Description</p>
+                <p>Découvrez la liste complète de toutes les boutiques officielles de Paris 2024.</p>
               </Link>
             </div>
 
@@ -279,7 +284,7 @@ class SectionAccueil extends Component {
               <Link to="/centres-de-preparation">
                 <img src={imgCentres} />
                 <h4>Centres de préparation</h4>
-                <p>Description</p>
+                <p>Découvrez la liste complète de tous les centres de préparation aux Jeux.</p>
               </Link>
             </div>
 
@@ -287,7 +292,7 @@ class SectionAccueil extends Component {
               <Link to="/carte-aide-volontaires">
                 <img src={imgVolontaire} />
                 <h4>Carte d'aide pour les Volontaires</h4>
-                <p>Description</p>
+                <p>Facilitez vos missions avec cette liste d'informations.</p>
               </Link>
             </div>
 
@@ -295,7 +300,7 @@ class SectionAccueil extends Component {
               <Link to="/parkings-velo">
                 <img src={imgParking} />
                 <h4>Parkings vélo</h4>
-                <p>Description</p>
+                <p>Découvrez la liste complète de tous les parkings vélo disponibles en Ile-de-France.</p>
               </Link>
             </div>
           </div>
