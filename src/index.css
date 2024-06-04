@@ -309,7 +309,8 @@ tbody tr:hover {
   padding: 150px 50px 50px 50px;
 }
 
-.page-title h1, .page-title-2 h1 {
+.page-title h1,
+.page-title-2 h1 {
   font-size: 52px;
   line-height: 56px;
   font-weight: 1000;
@@ -391,23 +392,21 @@ tbody tr:hover {
 
 /* ACCUEIL */
 
-
 .content-home {
   padding: 70px 100px 70px 100px;
   background-color: white;
   text-align: center;
 }
 
-.content-home h3{
+.content-home h3 {
   text-transform: uppercase;
   color: #003a54;
 }
 
-.content-home-table{
+.content-home-table {
   max-height: 500px;
   overflow-y: auto;
 }
-
 
 .cards-section {
   margin: 20px 30px 0 30px;
@@ -417,7 +416,7 @@ tbody tr:hover {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   align-content: center;
 }
 

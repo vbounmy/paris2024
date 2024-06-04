@@ -44,86 +44,99 @@ const TitleSearchSection = (props) => {
 };
 
 const ResearchAll = (props) => {
-  const { dataCat, dataId, dataName, dataAddress, tableData1, tableData2, query } = props;
+  const {
+    dataCat,
+    dataId,
+    dataName,
+    dataAddress,
+    tableData1,
+    tableData2,
+    query,
+  } = props;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchData = (query = '') => {
-      let url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?limit=0`;
-      if (query) {
-          url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?select=${dataName}%2C${dataAddress}&where=%22${query}%22&limit=30`;
-      }
-      console.log('Fetching data from:', url);
-      fetch(url)
-          .then((result) => result.json())
-          .then((result) => {
-              console.log('API response:', result);
-              if (result.results && Array.isArray(result.results)) {
-                  const data = result.results.map(record => ({ 
-                      [dataName]: record[dataName],
-                      [dataAddress]: record[dataAddress],
-                  }));
-                  setData(data);
-                  setLoading(false);
-              } else {
-                  console.error("Les données de l'API ne sont pas au format attendu:", result);
-                  setError("Les données de l'API ne sont pas au format attendu");
-                  setData([]);
-                  setLoading(false);
-              }
-          })
-          .catch(error => {
-              console.error("Erreur lors de la récupération des données de l'API:", error);
-              setError("Erreur lors de la récupération des données de l'API");
-              setData([]);
-              setLoading(false);
-          });
-  }
+  const fetchData = (query = "") => {
+    let url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?limit=0`;
+    if (query) {
+      url = `https://data.paris2024.org/api/explore/v2.1/catalog/datasets/${dataId}/records?select=${dataName}%2C${dataAddress}&where=%22${query}%22&limit=30`;
+    }
+    console.log("Fetching data from:", url);
+    fetch(url)
+      .then((result) => result.json())
+      .then((result) => {
+        console.log("API response:", result);
+        if (result.results && Array.isArray(result.results)) {
+          const data = result.results.map((record) => ({
+            [dataName]: record[dataName],
+            [dataAddress]: record[dataAddress],
+          }));
+          setData(data);
+          setLoading(false);
+        } else {
+          console.error(
+            "Les données de l'API ne sont pas au format attendu:",
+            result
+          );
+          setError("Les données de l'API ne sont pas au format attendu");
+          setData([]);
+          setLoading(false);
+        }
+      })
+      .catch((error) => {
+        console.error(
+          "Erreur lors de la récupération des données de l'API:",
+          error
+        );
+        setError("Erreur lors de la récupération des données de l'API");
+        setData([]);
+        setLoading(false);
+      });
+  };
 
   useEffect(() => {
-      fetchData(query);
+    fetchData(query);
   }, [query]);
 
   if (loading) {
-      return <p>Chargement des données...</p>;
+    return <p>Chargement des données...</p>;
   }
 
   if (error) {
-      return <p>{error}</p>;
+    return <p>{error}</p>;
   }
 
   return (
     <div class="content-home">
       <h3>{dataCat}</h3>
-        <div class="content-home-table">
-          <table>
-            <thead>
-              <tr>
-                <th>{tableData1}</th>
-                <th>{tableData2}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.length > 0 ? (
-                data.map((item, index) => (
-                  <tr key={index}>
-                    <td>{item[dataName]}</td>
-                    <td>{item[dataAddress]}</td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan="2">Aucune donnée trouvée.</td>
+      <div class="content-home-table">
+        <table>
+          <thead>
+            <tr>
+              <th>{tableData1}</th>
+              <th>{tableData2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.length > 0 ? (
+              data.map((item, index) => (
+                <tr key={index}>
+                  <td>{item[dataName]}</td>
+                  <td>{item[dataAddress]}</td>
                 </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="2">Aucune donnée trouvée.</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
+    </div>
   );
 };
-
 
 class SectionAccueil extends Component {
   state = {
@@ -145,7 +158,7 @@ class SectionAccueil extends Component {
       content,
 
       tableData1,
-      tableData2, 
+      tableData2,
 
       dataCatSitesCompetition,
       idSitesCompetition,
@@ -176,7 +189,6 @@ class SectionAccueil extends Component {
       idParkings,
       dataNameParkings,
       dataAddressParkings,
-      
     } = this.props;
     const { data, searchQuery } = this.state;
     return (
@@ -190,9 +202,9 @@ class SectionAccueil extends Component {
           onSearchSubmit={this.handleSearchSubmit}
         />
 
-        <ResearchAll 
-          dataCat={dataCatSitesCompetition} 
-          dataId={idSitesCompetition} 
+        <ResearchAll
+          dataCat={dataCatSitesCompetition}
+          dataId={idSitesCompetition}
           dataName={dataNameSitesCompetition}
           dataAddress={dataAddressSitesCompetition}
           tableData1={tableData1}
@@ -200,9 +212,9 @@ class SectionAccueil extends Component {
           query={searchQuery}
         />
 
-        <ResearchAll 
-          dataCat={dataCatOlympiade} 
-          dataId={idOlympiade} 
+        <ResearchAll
+          dataCat={dataCatOlympiade}
+          dataId={idOlympiade}
           dataName={dataNameOlympiade}
           dataAddress={dataAddressOlympiade}
           tableData1={tableData1}
@@ -210,9 +222,9 @@ class SectionAccueil extends Component {
           query={searchQuery}
         />
 
-        <ResearchAll 
-          dataCat={dataCatBoutiques} 
-          dataId={idBoutiques} 
+        <ResearchAll
+          dataCat={dataCatBoutiques}
+          dataId={idBoutiques}
           dataName={dataNameBoutiques}
           dataAddress={dataAddressBoutiques}
           tableData1={tableData1}
@@ -220,9 +232,9 @@ class SectionAccueil extends Component {
           query={searchQuery}
         />
 
-        <ResearchAll 
-          dataCat={dataCatCentresPreparation} 
-          dataId={idCentresPreparation} 
+        <ResearchAll
+          dataCat={dataCatCentresPreparation}
+          dataId={idCentresPreparation}
           dataName={dataNameCentresPreparation}
           dataAddress={dataAddressCentresPreparation}
           tableData1={tableData1}
@@ -230,9 +242,9 @@ class SectionAccueil extends Component {
           query={searchQuery}
         />
 
-        <ResearchAll 
-          dataCat={dataCatVolontaires} 
-          dataId={idVolontaires} 
+        <ResearchAll
+          dataCat={dataCatVolontaires}
+          dataId={idVolontaires}
           dataName={dataNameVolontaires}
           dataAddress={dataAddressVolontaires}
           tableData1={tableData1}
@@ -240,9 +252,9 @@ class SectionAccueil extends Component {
           query={searchQuery}
         />
 
-        <ResearchAll 
-          dataCat={dataCatParkings} 
-          dataId={idParkings} 
+        <ResearchAll
+          dataCat={dataCatParkings}
+          dataId={idParkings}
           dataName={dataNameParkings}
           dataAddress={dataAddressParkings}
           tableData1={tableData1}
@@ -260,7 +272,10 @@ class SectionAccueil extends Component {
               <Link to="/sites-de-competition">
                 <img src={imgSitesCompetition} />
                 <h4>Sites de compétitions</h4>
-                <p>Découvrez la liste complète de tous les sites de compétitions Olympiques et Paralympiques.</p>
+                <p>
+                  Découvrez la liste complète de tous les sites de compétitions
+                  Olympiques et Paralympiques.
+                </p>
               </Link>
             </div>
 
@@ -268,7 +283,10 @@ class SectionAccueil extends Component {
               <Link to="/olympiade-culturelle">
                 <img src={imgOlympiade} />
                 <h4>Olympiade Culturelle</h4>
-                <p>Découvrez la liste complète de tous les évènements Olympiade Culturelle.</p>
+                <p>
+                  Découvrez la liste complète de tous les évènements Olympiade
+                  Culturelle.
+                </p>
               </Link>
             </div>
 
@@ -276,7 +294,10 @@ class SectionAccueil extends Component {
               <Link to="/boutiques-officielles">
                 <img src={imgBoutiques} />
                 <h4>Boutiques Officielles</h4>
-                <p>Découvrez la liste complète de toutes les boutiques officielles de Paris 2024.</p>
+                <p>
+                  Découvrez la liste complète de toutes les boutiques
+                  officielles de Paris 2024.
+                </p>
               </Link>
             </div>
 
@@ -284,7 +305,10 @@ class SectionAccueil extends Component {
               <Link to="/centres-de-preparation">
                 <img src={imgCentres} />
                 <h4>Centres de préparation</h4>
-                <p>Découvrez la liste complète de tous les centres de préparation aux Jeux.</p>
+                <p>
+                  Découvrez la liste complète de tous les centres de préparation
+                  aux Jeux.
+                </p>
               </Link>
             </div>
 
@@ -300,7 +324,10 @@ class SectionAccueil extends Component {
               <Link to="/parkings-velo">
                 <img src={imgParking} />
                 <h4>Parkings vélo</h4>
-                <p>Découvrez la liste complète de tous les parkings vélo disponibles en Ile-de-France.</p>
+                <p>
+                  Découvrez la liste complète de tous les parkings vélo
+                  disponibles en Ile-de-France.
+                </p>
               </Link>
             </div>
           </div>
