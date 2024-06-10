@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/paris2024/static/css/main.893bcfaf.css",
+    "main.js": "/paris2024/static/js/main.92cf5394.js",
+    "static/media/volontaire.jpg": "/paris2024/static/media/volontaire.9cb23cb1ace2bc59edc5.jpg",
+    "static/media/boutiques-officielles.jpg": "/paris2024/static/media/boutiques-officielles.ff812030b2da45ada8ca.jpg",
+    "static/media/centre-preparation.jpg": "/paris2024/static/media/centre-preparation.91e990403e8a82732432.jpg",
+    "static/media/parking-velo.jpg": "/paris2024/static/media/parking-velo.ace8aaaa229cfdf7529c.jpg",
+    "static/media/olympiade-culturelle.jpg": "/paris2024/static/media/olympiade-culturelle.899f58f25f2895193ee9.jpg",
+    "static/media/Paris2024-Variable.ttf": "/paris2024/static/media/Paris2024-Variable.03a40a690efcb22946bb.ttf",
+    "static/media/sites-de-competition.jpg": "/paris2024/static/media/sites-de-competition.30095d9154abaf94068e.jpg",
+    "static/media/Emblme Paris 2024.png": "/paris2024/static/media/Emblme Paris 2024.098b0f098c75e6c645e6.png",
+    "static/media/emblem-white.svg": "/paris2024/static/media/emblem-white.6a00a198ee1c5beb78ff75ef18505279.svg",
+    "index.html": "/paris2024/index.html",
+    "main.893bcfaf.css.map": "/paris2024/static/css/main.893bcfaf.css.map",
+    "main.92cf5394.js.map": "/paris2024/static/js/main.92cf5394.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.893bcfaf.css",
+    "static/js/main.92cf5394.js"
+  ]
+}
