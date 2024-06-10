@@ -27,7 +27,7 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <Router basename="/paris2024">
       <div>
         <header class="header">
           <div class="header-logo">
