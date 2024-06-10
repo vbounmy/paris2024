@@ -83,7 +83,7 @@ const App = () => {
                 <Link to="/centres-de-preparation">Centres de préparation</Link>
               </li>
               <li onClick={hideSidebar}>
-                <Link to="/sites-de-competition">Sites de compétition</Link>
+                <Link to="/sites-de-competitions">Sites de compétitions</Link>
               </li>
               <li onClick={hideSidebar}>
                 <Link to="/parkings-velo">Parkings vélo</Link>
@@ -112,7 +112,7 @@ const App = () => {
               element={<CentresPreparation />}
             />
             <Route
-              path="/sites-de-competition"
+              path="/sites-de-competitions"
               element={<SitesCompetition />}
             />
             <Route path="/parkings-velo" element={<ParkingsVelo />} />
