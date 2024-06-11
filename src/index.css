@@ -129,12 +129,38 @@ header img {
 }
 
 @media (max-width: 768px) {
+  header {
+    height: 90px;
+  }
+
+  header a{
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  header img {
+    height: 70px;
+    width: auto;
+  }
+
   .header-h1{
     width: 150px;
   }
 
+  .header-h1 a{
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 5px;
+  }
+
   .sidebar{
     width: 100%;
+    height: 100%;
+    padding: 5px 0px;
+  }
+
+  .sidebar a{
+    padding: 10px 0px;
   }
 
   .nav-responsive{
@@ -318,6 +344,12 @@ tbody tr:hover {
     font-size: 24px;
     line-height: 32px;
   }
+
+  th, td{
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
 }
 
 
@@ -436,7 +468,7 @@ tbody tr:hover {
     padding: 80px 2vw 50px 2vw;
   }
 
-  .page-title-2 h1 {
+  .page-title h1, .page-title-2 h1 {
     font-size: 32px;
     line-height: 38px;
   }
@@ -463,6 +495,7 @@ tbody tr:hover {
 }
 
 .cards-section {
+  -webkit-overflow-scrolling: touch;
   margin: 20px 30px 0 30px;
   padding: 20px;
   display: flex;
@@ -550,8 +583,12 @@ tbody tr:hover {
 @media (max-width: 645px) {
   .cards-section{
     flex-wrap: nowrap;
-    overflow-y: auto;
+    overflow-x: auto;
     justify-content: flex-start;
+  }
+
+  .card-container{
+    flex: 0 0 auto;
   }
 }
 

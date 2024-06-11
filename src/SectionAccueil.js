@@ -267,7 +267,9 @@ class SectionAccueil extends Component {
         </div>
 
         <div class="content">
+
           <div class="cards-section">
+            
             <div class="card-container">
               <Link to="/sites-de-competitions">
                 <img src={imgSitesCompetition} />
