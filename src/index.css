@@ -316,6 +316,7 @@ th,
 td {
   padding: 10px;
   text-align: left;
+  text-wrap: pretty;
   font-size: 20px;
   line-height: 26px;
   margin-bottom: 24px;
@@ -349,7 +350,13 @@ tbody tr:hover {
     font-size: 16px;
     line-height: 20px;
     margin-bottom: 10px;
+    width: auto;
   }
+
+  table{
+    max-width: 100%;
+  }
+  
 }
 
 
