@@ -32,18 +32,18 @@ const App = () => {
         <header class="header">
           <div class="header-logo">
             <h1 class="header-h1">
-              <Link to="/">PARIS 2024</Link>
+              <Link to="/paris2024">PARIS 2024</Link>
             </h1>
-            <Link to="/">
+            <Link to="/paris2024">
               <img src={logoGif} />
             </Link>
           </div>
           <nav>
             <ul>
-              <li>
-                <Link to="/">ACCUEIL</Link>
+              <li class="nav-responsive">
+                <Link to="/paris2024">ACCUEIL</Link>
               </li>
-              <li>
+              <li class="nav-responsive">
                 <Link to="/FAQ">FAQ</Link>
               </li>
               <li onClick={showSidebar} class="menu-icon-container">
@@ -76,6 +76,14 @@ const App = () => {
                 </Link>
               </li>
 
+              <li class="sidebar-responsive" onClick={hideSidebar}>
+                <Link to="/paris2024">Accueil</Link>
+              </li>
+
+              <li class="sidebar-responsive" onClick={hideSidebar}>
+                <Link to="/FAQ">FAQ</Link>
+              </li>
+
               <li onClick={hideSidebar}>
                 <Link to="/boutiques-officielles">Boutiques Officielles</Link>
               </li>
@@ -102,7 +110,7 @@ const App = () => {
 
         <main>
           <Routes>
-            <Route path="/" element={<Accueil />} />
+            <Route path="/paris2024" element={<Accueil />} />
             <Route
               path="/boutiques-officielles"
               element={<BoutiquesOfficielles />}
